@@ -39,9 +39,16 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
-        ],
-    ],
 
+            
+        ],
+        'Jobseekerguard'=>[
+            'driver'=>'session',
+            'provider'=>'jobseekerprovider',
+        ],
+    
+    ],
+      
     /*
     |--------------------------------------------------------------------------
     | User Providers
@@ -63,8 +70,15 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
-        ],
 
+        ],
+    
+           'jobseekerprovider' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\Seeker::class),
+
+        ],
+    
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
