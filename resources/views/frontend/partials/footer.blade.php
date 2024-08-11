@@ -9,7 +9,7 @@
                              <div class="footer-tittle">
                                  <h4>About Us</h4>
                                  <div class="footer-pera">
-                                     <p>Heaven frucvitful doesn't cover lesser dvsays appear creeping seasons so behold.</p>
+                                     <p>We are here to find a talent.We are working since 2010.</p>
                                 </div>
                              </div>
                          </div>
@@ -22,11 +22,11 @@
                                 <h4>Contact Info</h4>
                                 <ul>
                                     <li>
-                                    <p>Address :Your address goes
-                                        here, your demo address.</p>
+                                    <p>Address :Uttara sector 10
+                                </p>
                                     </li>
-                                    <li><a href="#">Phone : +8880 44338899</a></li>
-                                    <li><a href="#">Email : info@colorlib.com</a></li>
+                                    <li><a href="#">Phone : +8801674644655</a></li>
+                                    <li><a href="#">Email : sammi@gmail.com</a></li>
                                 </ul>
                             </div>
 

@@ -29,6 +29,7 @@ class CompanyController
         'company_name'=>'required|max:30',
         'company_address'=>'required|max:20',
         'mobile_number'=>'required|max:11',
+        'category_name'=>'required|max:50',
         'company_image'=>'required|file|max:1024'
        ]);
          if ($validation->fails())
@@ -50,9 +51,11 @@ class CompanyController
         'name'=> $request->company_name,
         'address'=> $request->company_address,
         'mobile'=> $request->mobile_number,
+        'category'=>$request->category_name,
         'image'=>$fileName
 
     ]);
+      //dd($request->all());
 
     return redirect()->route('company.list');
     }

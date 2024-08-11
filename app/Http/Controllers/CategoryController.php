@@ -23,9 +23,10 @@ class CategoryController
        category::create([
         'name'=> $request->category_name,
         'Description'=> $request->category_description,
-    
+        'image'=>$fileName,
 
     ]);
+    
         
 }
 }

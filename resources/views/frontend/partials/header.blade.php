@@ -109,6 +109,7 @@
       </div>
       <div class="modal-body">
       <form  id="register-form" class="form" action="{{route('seekers.register')}}" method="post">
+        @csrf
                             <h3 class="text-center text-info">Registern</h3>
                             <div class="form-group">
                                 <label class="text-info">Enter your Full Name</label><br>
