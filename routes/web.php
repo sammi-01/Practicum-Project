@@ -31,12 +31,23 @@ Route::get('/jobseekers',[FrontendJobseekersController::class,'jobseekeres']);
 Route::post('/login',[FrontendSeekersController::class,'login'])->name('seekers.login'); 
 Route::post('/register',[FrontendSeekersController::class,'register'])->name('seekers.register'); 
 Route::get('/jobpost',[FrontendjobpostController::class,'jobpost'])->name('frontend.jobpost');
+Route::get('/logout',[FrontendSeekersController::class,'logout'])->name('seekers.logout'); 
 
 
 //Main fmaster template
 Route::get('/',[FMasterController::class,'fmaster'])->name('frontend.master');
-
-
+Route::get('/search',[FrontendjobpostController::class,'search'])->name('search');
+ 
+//middleware frontend
+Route::group(['middleware'=>'jobseeker_auth'],function(){
+  Route::get('/logout',[FrontendSeekersController::class,'logout'])->name('seekers.logout');
+ // Route::get('checkout',[OrderController::class,'checkout'])->name('checkout');
+ // Route::post('/placeorder',[OrderController::class,'placeOrder'])->name('place.order');
+  //Route::get('/profile-page',[ProfileController::class,'profilePage'])->name("profile.page");
+ // Route::get('/profile-order',[ProfileController::class,'profileOrder'])->name('profile.order');
+ // Route::get('/view-Invoice/{order_id}',[OrderController::class,'viewInvoice'])->name('view.Invoice');
+ 
+});
 
 //company
 

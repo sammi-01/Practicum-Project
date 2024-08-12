@@ -19,10 +19,14 @@
 
   </div>
   
-  <div class="form-group">
+  
+     <select name="category_id" id="">
     <label for="exampleInputEmail1"> Category Name</label>
-    <input name="category_name" type="text" class="form-control" id="category"  placeholder="Category">
-    </div>
+    @foreach($allcategory as $category)
+    <option value="{{$category->id}}">{{$category->name}}</option>
+    @endforeach
+    </select> 
+    
 
 
   <div class="form-group">

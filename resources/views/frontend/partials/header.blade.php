@@ -1,7 +1,6 @@
-
-<header>
-        <!-- Header Start -->
-       <div class="header-area header-transparrent">
+ <!-- Header Start -->
+    <header>
+ <div class="header-area header-transparrent">
            <div class="headder-top header-sticky">
                 <div class="container">
                     <div class="row align-items-center">
@@ -11,6 +10,39 @@
                                 <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
                             </div>  
                         </div>
+                        <!-- Search Box -->
+<div class="row">
+                            <div class="col-xl-8">
+                                <!-- form -->
+                                <form action="{{('search)}}" class="search-box">
+                                    <div class="input-form">
+                                        <input type="text" name="search_key" placeholder="Job Tittle or keyword">
+                                    </div>
+                                    <div class="select-form">
+                                        <div class="select-itms">
+                                            <select name="select" id="select1">
+                                                <option value="">Location BD</option>
+                                                <option value="">Location PK</option>
+                                                <option value="">Location US</option>
+                                                <option value="">Location UK</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="search-form">
+                                        <a href="#">Search Job</a>
+                                    </div>	
+                                </form>	
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </header>  
+
+
+
+                        
                         <div class="col-lg-9 col-md-9">
                             <div class="menu-wrapper">
                                 <!-- Main-menu -->
@@ -33,10 +65,28 @@
                                     </nav>
                                 </div>          
                                 <!-- Header-btn -->
+                                 @guest('Jobseekerguard')
                                 <div class="header-btn d-none f-right d-lg-block">
                                     <a href="#" class="btn head-btn1" data-toggle="modal" data-target="#registerModal">Register</a>
                                     <a href="#" class="btn head-btn2" data-toggle="modal" data-target="#exampleModal">Login</a>
-                                </div>
+                                </div>@endguest
+                                @auth('Jobseekerguard')
+  <li>
+  <a href="">{{auth('Jobseekerguard')->user()->name}}
+
+  </a>
+
+  </li>
+  <li>
+    <a href="{{route('seekers.logout')}}">Logout
+
+    </a>
+  </li>
+  @endauth
+
+
+
+
                             </div>
                         </div>
                         <!-- Mobile Menu -->
@@ -81,9 +131,7 @@
                                 <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
                                 <input type="submit" class="btn btn-info btn-md" value="submit">
                             </div>
-                            <div id="register-link" class="text-right">
-                                <a href="#" class="text-info">Register here</a>
-                            </div>
+                           
                         </form>
 
 
@@ -91,9 +139,10 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      <div id="register-link" class="text-right">
+                                <a href="#" class="text-info">Register here</a>
+                            </div>
+     </div>
     </div>
   </div>
 </div>
@@ -110,10 +159,10 @@
       <div class="modal-body">
       <form  id="register-form" class="form" action="{{route('seekers.register')}}" method="post">
         @csrf
-                            <h3 class="text-center text-info">Registern</h3>
+                            <h3 class="text-center text-info">Register</h3>
                             <div class="form-group">
                                 <label class="text-info">Enter your Full Name</label><br>
-                                <input name type="text" class="form-control">
+                                <input name="name" type="text" class="form-control">
                             </div>
                                
 

@@ -10,7 +10,7 @@ class CompanyController
 {
     public function company()
     {
-        $allcompany=Company::paginate(5);
+        $allcompany=Company::with('category')->paginate(5);
         return view('backend.partials.company',compact('allcompany'));
     }
 

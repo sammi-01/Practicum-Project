@@ -8,6 +8,7 @@
       <th scope="col">Address</th>
       <th scope="col">mobile</th>
       <th scope="col">company post</th>
+      <th scope="col">category name</th>
       <th scope="col">action</th>
     </tr>
   </thead>
@@ -19,6 +20,7 @@
       <td>{{$company->name}}</td>
       <td>{{$company->address}}</td>
       <td>{{$company->mobile}}</td>
+      <td>{{$company->category->name}}</td>
       <td><img src="{{url('/uploads/'.$company->image)}}" alt="" width="50px"></td>
       <td> <a href="#" class="btn btn-success">view</a></td>
 
