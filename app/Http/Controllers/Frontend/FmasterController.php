@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Frontend;
 
 
 use Illuminate\Http\Request;
-
+use App\Models\Category;
 class FmasterController
 {
     public function fmaster()
     {
-        return view('frontend.fmaster');
+        $categories=Category::all();
+        return view('frontend.fmaster',compact('categories'));
     }
 }

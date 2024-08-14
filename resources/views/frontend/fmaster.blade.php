@@ -101,41 +101,27 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="row d-flex justify-contnet-center">
+                @foreach($categories as $category)
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                         <div class="single-services text-center mb-30">
                             <div class="services-ion">
                                 <span class="flaticon-tour"></span>
                             </div>
                             <div class="services-cap">
-                               <h5><a href="job_listing.html">Design & Creative</a></h5>
+                               <h5><a href="job_listing.html">{{$category->name}}</a>
+                               <!-- <a href="job_listing.html">{{$category->description}}</a> -->
+                            </h5>
+
                                 <span>(15)</span>
                             </div>
                         </div>
+                    
+                       </div>
+                    @endforeach
                     </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <div class="single-services text-center mb-30">
-                            <div class="services-ion">
-                                <span class="flaticon-cms"></span>
-                            </div>
-                            <div class="services-cap">
-                               <h5><a href="job_listing.html">Design & Development</a></h5>
-                                <span>(15)</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <div class="single-services text-center mb-30">
-                            <div class="services-ion">
-                                <span class="flaticon-report"></span>
-                            </div>
-                            <div class="services-cap">
-                               <h5><a href="job_listing.html">Sales & Marketing</a></h5>
-                                <span>(10)</span>
-                            </div>
-                        </div>
-                    </div>
-                   
+                    
                 <!-- More Btn -->
                 <!-- Section Button -->
                 

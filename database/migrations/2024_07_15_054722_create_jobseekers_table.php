@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('jobseekers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('address');
-            $table->double('mobile');
+            $table->string('address')->nullable();
+            $table->double('mobile')->nullable();
         
             $table->timestamps();
           

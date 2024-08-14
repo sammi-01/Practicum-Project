@@ -8,13 +8,18 @@ use Illuminate\Support\Facades\Validator;
 
 class CategoryController
 {
+  public function category()
+  {
+      $allcategory=Category::paginate(5);
+      return view('backend.partials.jcategorylist',compact('allcategory'));
+  }
 
 
 
     public function categoryf()
     {
         $allcategory=Category::paginate(5);
-        return view('backend.partials.jcategorylist',compact('allcategory'));
+        return view('backend.partials.categoryform');
     }
 
     
@@ -23,14 +28,15 @@ class CategoryController
        //dd($request->all());
     
        
-          //dd($request->all());
+       
           //validation
           $validation= Validator::make($request->all(),[
            
            'category_name'=>'required|max:50',
            'category_description'=>'required|max:50',
-           
+        
           ]);
+        
             if ($validation->fails())
             {
               notify()->error($validation->getMessageBag());
@@ -41,11 +47,11 @@ class CategoryController
           //query
           Category::create([
            'name'=> $request->category_name,
-           'description'=> $request->company_address,
+           'description'=> $request->category_description,
            
    
        ]);
-        
+            //dd($request->all());
    
        return redirect()->route('Category.list');
        }

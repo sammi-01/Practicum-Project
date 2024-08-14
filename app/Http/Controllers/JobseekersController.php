@@ -24,26 +24,29 @@ class JobseekersController extends Controller
     //validation
     public function store(Request $request)
     {
-       //dd($request->all());
+      
       $validation=  Validator::make($request->all(),[
-        'jobseekers_name'=>'required|max:20',
-        'job_address'=>'required|max:30',
-        'mobile_number'=>'required|max:11'
-      ]);
-      if($validation->fails())
+         'name'=>'required',
+         'address'=>'required',
+        'number'=>'required'
+       ]); 
+     
+       if($validation->fails())
       {
-        notify()->error($validation->getMessageBag());
-        return redirect()->back();
+       //dd($validation) ;
+         notify()->error($validation->getMessageBag());
+         return redirect()->back();
       }
 
     //query
        Jobseeker::create([
-        'name'=> $request->jobseekers_name,
-        'address'=> $request->job_address,
-        'mobile'=> $request->mobile_number
+        'name'=> $request->name,
+        'address'=> $request->address,
+        'mobile'=> $request->number
 
     ]);
-
-    return redirect()->back();
+  
+    //dd($request->all());
+    return redirect()->route('jobseekers.list');
     }
 }

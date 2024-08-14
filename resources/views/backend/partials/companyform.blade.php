@@ -13,24 +13,29 @@
     <input name="company_address" type="text" class="form-control" id="company_address"  placeholder="Enter your address">
 
   </div>
+
+
+  
   <div class="form-group">
     <label for="exampleInputEmail"> Mobile number</label>
     <input name="mobile_number" type="text" class="form-control" id="mobile_numbers"  placeholder="Enter your mobile number">
 
   </div>
   
-  
-     <select name="category_id" id="">
-    <label for="exampleInputEmail1"> Category Name</label>
-    @foreach($allcategory as $category)
-    <option value="{{$category->id}}">{{$category->name}}</option>
-    @endforeach
-    </select> 
-    
+   <div class="form-group">
+    <label for="exampleInputEmail"> company email address</label>
+    <input name="company_email" type="text" class="form-control" id="email"  placeholder="Enter your email address">
 
+  </div> 
 
   <div class="form-group">
-    <label for="exampleInputEmail"> Company post</label>
+    <label for="exampleInputEmail"> Password </label>
+    <input name="password" type="password" class="form-control" id="password"  placeholder="Enter your password">
+
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail"> Company Logo</label>
     <input name="company_image" type="file" class="form-control" id="post"  placeholder="Upload your company job post(image)">
 
   </div>

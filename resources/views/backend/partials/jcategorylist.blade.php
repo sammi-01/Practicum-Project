@@ -1,4 +1,4 @@
- @extends('master')
+@extends('master')
 @section('content')
  
 <table class="table table-striped table-dark">
@@ -7,6 +7,7 @@
       <th scope="col">#</th>
       <th scope="col">Category Name</th>
       <th scope="col">Category Description</th>
+      <th scope="col">Action</th>
     
       
     </tr>
@@ -14,17 +15,17 @@
   <tbody>
   @foreach($allcategory as $jobcategory)
     <tr>
-      <th scope="row">{{$category->id}}</th>
+      <th scope="row">{{$jobcategory->id}}</th>
 
-      <td>{{$category->name}}</td>
-      <td>{{$category->description}}</td>
+      <td>{{$jobcategory->name}}</td>
+      <td>{{$jobcategory->description}}</td>
       <td> <a href="#" class="btn btn-success">view</a></td>
 
     </tr>
     @endforeach
   </tbody>
 </table>
-<div><a href="{{route('Category.form')}}" class="btn btn-primary">go to category form</a></div>
+<a href="{{route('Category.form')}}" class="btn btn-primary">go to category form</a>
 {{$allcategory->links()}} 
 
 @endsection  

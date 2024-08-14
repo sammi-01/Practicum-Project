@@ -12,6 +12,7 @@ class JobpostController
     
       $jobpost=Jobpost::all();
        return view('frontend.jobpost',compact('jobpost'));
+       
     }
 
     public function search()

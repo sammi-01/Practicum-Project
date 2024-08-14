@@ -16,9 +16,14 @@ class UsersTableSeeder extends Seeder
 
         User::create([
 
-        'name'=>'sammi',
-        'email'=>'sammi@gmail.com',
-        'password'=>bcrypt('sammi655'),
+        'name'=>'admin',
+        'email'=>'admin@gmail.com',
+        'address'=>'uttara',
+        'role'=>'admin',
+        'mobile'=>'01674644655',
+        'password'=>bcrypt('123456'),
+        // 'cemail'=>'company@gmail.com',
+        // 'cpassword'=>bcrypt('12345')
         ]);
     }
 }

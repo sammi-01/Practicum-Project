@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('address');
             $table->double('mobile');
-            $table->string('category_id');
             $table->string('image');
             $table->timestamps();
         });

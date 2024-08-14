@@ -7,6 +7,7 @@ use App\Http\Controllers\ApplicationsController;
 use App\Http\Controllers\JobseekersController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\JobpostController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Frontend\JobseekersController as FrontendJobseekersController;
 use App\Http\Controllers\Frontend\JobpostController as FrontendJobpostController;
@@ -37,7 +38,7 @@ Route::get('/logout',[FrontendSeekersController::class,'logout'])->name('seekers
 //Main fmaster template
 Route::get('/',[FMasterController::class,'fmaster'])->name('frontend.master');
 Route::get('/search',[FrontendjobpostController::class,'search'])->name('search');
- 
+
 //middleware frontend
 Route::group(['middleware'=>'jobseeker_auth'],function(){
   Route::get('/logout',[FrontendSeekersController::class,'logout'])->name('seekers.logout');
@@ -59,6 +60,10 @@ Route::group(['middleware'=>'jobseeker_auth'],function(){
     //Authantication
       Route::get('/login',[AuthorController::class,'login'])->name('login');
       Route::post('/dologin',[AuthorController::class,'loginprocess'])->name('submit.login');
+
+
+
+
       Route::group(['middleware'=>'auth'], function(){
       Route::get('/logout',[AuthorController::class,'logout'])->name('logout');
       
@@ -71,6 +76,8 @@ Route::group(['middleware'=>'jobseeker_auth'],function(){
     
     Route::get('/contact-us',[ContactController::class,'contact']);
     
+    
+    
     //company
     
     Route::get('/company',[CompanyController::class,'company'])->name('company.list');
@@ -78,7 +85,21 @@ Route::group(['middleware'=>'jobseeker_auth'],function(){
     Route::get('/company-form',[CompanyController::class,'form'])->name('company.form');
     
     Route::post('/companies-store',[CompanyController::class,'store'])->name('company.store');
+
+
+    //jobpost
+    Route::get('/jobpost',[CompanyController::class,'post'])->name('jobpost.list');
     
+    Route::get('/jobpost-form',[CompanyController::class,'postform'])->name('jobpost.form');
+    
+    Route::post('/jobpost-store',[CompanyController::class,'poststore'])->name('jobpost.store');
+
+
+
+    //edit,delete,view
+   Route::get('/companypost/delete/{p_id}',[JobpostController::class,'delete'])->name('companypost.delete');
+   Route::get('/companypost/view/{p_id}',[JobpostController::class,'viewPost'])->name('companypost.view');
+   Route::get('/companypost/edit/{p_id}',[JobpostController::class, 'edit'])->name('companypost.edit');
     
     
     
