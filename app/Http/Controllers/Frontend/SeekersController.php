@@ -27,7 +27,7 @@ class SeekersController
 
         if ($validation->fails())
         {
-            notify()->error($validation->getMessageBag());
+            flash()->error($validation->getMessageBag());
         return redirect()->back();
         }
 
@@ -40,7 +40,7 @@ class SeekersController
 
         ]);
 
-       notify()->success("Registration Successfull");
+       flash()->success("Registration Successfull");
      
       return redirect()->back();
      
@@ -61,7 +61,7 @@ class SeekersController
 
       if ($validation->fails())
       {
-          notify()->error($validation->getMessageBag());
+          flash()->error($validation->getMessageBag());
       return redirect()->back();
       }
       $credeintials=$request->except('_token');
@@ -69,12 +69,12 @@ class SeekersController
       //dd($check);
       if($check)
       {
-        notify()->success('Login Sucessflly');
-        return redirect()->route('frontend.master');
+        flash()->success('Login Sucessflly');
+        return redirect()->route('frontend.home');
       }
       else{
-        notify()->error('Login Faild');
-        return redirect()->route('frontend.master');
+        flash()->error('Login Faild');
+        return redirect()->route('frontend.home');
       }
     
 
@@ -88,8 +88,8 @@ class SeekersController
       // return redirect()->route('frontend.home');
 
       auth('Jobseekerguard')->logout();
-      notify()->success('Logout Successful');
-      return redirect()->route('frontend.master');
+      flash()->success('Logout Successful');
+      return redirect()->route('frontend.home');
     }
 
 }

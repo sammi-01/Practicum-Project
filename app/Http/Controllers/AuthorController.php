@@ -18,7 +18,7 @@ class AuthorController extends JobseekersController
         //dd($check);
         if($check)
         {
-            notify()->success("login successsfull");
+            flash()->success("login successsfull");
             return redirect()->route('master.panel');
         }
         else{
@@ -31,7 +31,7 @@ class AuthorController extends JobseekersController
     {
         Auth::logout();
        # auth('seekersGuard')->logout();
-        notify()->error("Logout Successful");
+        flash()->error("Logout Successful");
 
         return redirect()->route('login');
     }

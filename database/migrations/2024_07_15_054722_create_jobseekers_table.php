@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('address')->nullable();
-            $table->double('mobile')->nullable();
+            $table->string('mobile')->nullable();
         
             $table->timestamps();
           
@@ -28,6 +28,7 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
+    
     public function down(): void
     {
         Schema::dropIfExists('jobseekers');

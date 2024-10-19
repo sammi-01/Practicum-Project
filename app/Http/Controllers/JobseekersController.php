@@ -15,12 +15,12 @@ class JobseekersController extends Controller
         return view('backend.partials.jobseekers',compact('alljobseekers'));
     }
 
-    public function form() 
-    {
-        Return view('backend.partials.jobseekersform');
+    // public function form() 
+    // {
+    //     Return view('backend.partials.jobseekersform');
 
         
-    }
+    // }
     //validation
     public function store(Request $request)
     {
@@ -28,13 +28,14 @@ class JobseekersController extends Controller
       $validation=  Validator::make($request->all(),[
          'name'=>'required',
          'address'=>'required',
-        'number'=>'required'
+        'mobile'=>'required'
        ]); 
+       //dd($request->all());
      
        if($validation->fails())
       {
        //dd($validation) ;
-         notify()->error($validation->getMessageBag());
+         flash()->error($validation->getMessageBag());
          return redirect()->back();
       }
 
@@ -42,7 +43,7 @@ class JobseekersController extends Controller
        Jobseeker::create([
         'name'=> $request->name,
         'address'=> $request->address,
-        'mobile'=> $request->number
+        'mobile'=> $request->mobile
 
     ]);
   

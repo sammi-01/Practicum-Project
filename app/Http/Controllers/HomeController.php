@@ -12,4 +12,7 @@ class HomeController extends Controller
     {
         return view('backend.partials.home');
     }
+
+    
+
 }

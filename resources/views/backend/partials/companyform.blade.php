@@ -17,8 +17,8 @@
 
   
   <div class="form-group">
-    <label for="exampleInputEmail"> Mobile number</label>
-    <input name="mobile_number" type="text" class="form-control" id="mobile_numbers"  placeholder="Enter your mobile number">
+    <label for="mobile_number"> Mobile number</label>
+    <input name="mobile_number" type="number" class="form-control" id="mobile_numbers"  placeholder="Enter your mobile number">
 
   </div>
   
@@ -39,6 +39,8 @@
     <input name="company_image" type="file" class="form-control" id="post"  placeholder="Upload your company job post(image)">
 
   </div>
+
+  
 
   
   

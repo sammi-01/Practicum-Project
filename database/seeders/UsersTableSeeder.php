@@ -22,8 +22,8 @@ class UsersTableSeeder extends Seeder
         'role'=>'admin',
         'mobile'=>'01674644655',
         'password'=>bcrypt('123456'),
-        // 'cemail'=>'company@gmail.com',
-        // 'cpassword'=>bcrypt('12345')
+        //  'cemail'=>'company@gmail.com',
+        //  'cpassword'=>bcrypt('12345')
         ]);
     }
 }

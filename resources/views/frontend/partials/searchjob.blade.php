@@ -1,47 +1,49 @@
- <!-- Section Tittle -->
-<div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-tittle white-text text-center">
-                            <span>Apply process</span>
-                            <h2> How it works</h2>
-                        </div>
-                    </div>
+@extends('frontend.fmaster')
+
+@section('content')
+
+<section style="background-color: #eee;">
+  <div class="container py-5">
+    <div class="row">
+      <p>
+        {{ $category->count() }} items found for "{{ request()->search_key }}"
+      </p>
+
+      @foreach ($category as $prod)
+   
+      <div class="col-md-4 col-lg-4 mb-4">
+        <div class="card text-black h-100">
+        
+          <a href="" style="text-decoration: none; color: inherit;">
+            <!-- <img src="{{('/uploads/'.$prod->image)}}" class="card-img-top" alt="Company Image" style="width: 100%; height: 200px; object-fit: cover;" /> -->
+            <div class="card-body">
+              <div class="text-center mt-1">
+                <h4 class="card-title">{{$prod->name}}</h4>
+              </div>
+
+              <div class="text-center">
+                <div class="p-3 mx-n3 mb-4" style="background-color: #eff1f2;">
+                  <h5 class="mb-0">Here we are with your best choices</h5>
                 </div>
-                <!-- Apply Process Caption  -->
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-process text-center mb-30">
-                            <div class="process-ion">
-                                <span class="flaticon-search"></span>
-                            </div>
-                            <div class="process-cap">
-                               <h5>1. Search a job</h5>
-                               <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-process text-center mb-30">
-                            <div class="process-ion">
-                                <span class="flaticon-curriculum-vitae"></span>
-                            </div>
-                            <div class="process-cap">
-                               <h5>2. Apply for job</h5>
-                               <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-process text-center mb-30">
-                            <div class="process-ion">
-                                <span class="flaticon-tour"></span>
-                            </div>
-                            <div class="process-cap">
-                               <h5>3. Get your job</h5>
-                               <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
-                            </div>
-                        </div>
-                    </div>
+
+                <div class="d-flex flex-column mb-4 lead">
+                  <span class="mb-2">{{$prod->description}}</span>
+                  <span style="color: transparent;">0</span>
                 </div>
-             </div>
+              </div>
+
+              <div class="d-flex flex-row">
+                <a href="{{route('companypost.view.list',$prod->id)}}" class="btn btn-primary flex-fill me-1">
+                  View Job Post
+                </a>
+              </div>
+            </div>
+          </a>
         </div>
+      </div>
+      @endforeach
+    </div>
+  </div>
+</section>
+
+@endsection

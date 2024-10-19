@@ -8,24 +8,24 @@
       <th scope="col">Category Name</th>
       <th scope="col">Category Description</th>
       <th scope="col">Action</th>
-    
-      
-    </tr>
+      </tr>
   </thead>
   <tbody>
-  @foreach($allcategory as $jobcategory)
+  @foreach($allcategory as $category)
     <tr>
-      <th scope="row">{{$jobcategory->id}}</th>
-
-      <td>{{$jobcategory->name}}</td>
-      <td>{{$jobcategory->description}}</td>
-      <td> <a href="#" class="btn btn-success">view</a></td>
+      <th scope="row">{{$category->id}}</th>
+      <td>{{$category->name}}</td>
+      <td>{{$category->description}}</td>
+      <td> 
+      <a href="{{route('category.view',$category->id)}}" class="btn btn-success">view</a>
+      <a href="{{route('category.delete',$category->id)}}" class="btn btn-danger">Delete</a>
+      </td>
 
     </tr>
     @endforeach
   </tbody>
 </table>
 <a href="{{route('Category.form')}}" class="btn btn-primary">go to category form</a>
-{{$allcategory->links()}} 
+
 
 @endsection  

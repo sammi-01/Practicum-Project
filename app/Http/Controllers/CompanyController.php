@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+
 use App\Models\Company;
+use App\Models\User;
 //use App\Models\Category;
 use Illuminate\Support\Facades\Validator;
 
@@ -12,20 +13,20 @@ class CompanyController
 {
     public function company()
     {
-        $allcompany=Company::paginate(5);
-        return view('backend.partials.company',compact('allcompany'));
+        $allcompany=User::all();
+        return view('backend.partials.companylist',compact('allcompany'));
     }
 
     public function form() 
     {
-        $allcompany=Company::all();
-        return view('backend.partials.companyform',compact('allcompany'));
+       
+        return view('backend.partials.companyform');
 
         
     }
     public function store(Request $request)
     {
-       //dd($request->all());
+      // dd($request);
        //validation
        $validation= Validator::make($request->all(),[
         'company_name'=>'required',
@@ -36,8 +37,8 @@ class CompanyController
        ]);
          if ($validation->fails())
          {
-          dd($validation);
-           notify()->error($validation->getMessageBag());
+          //dd($validation);
+           flash()->error($validation->getMessageBag());
            return redirect()->back();
          
          }
@@ -63,37 +64,14 @@ class CompanyController
 ]);
       //dd($request->all());
 
-    return redirect()->route('company.list');
+     return redirect()->route('company.list');
     }
 
-    public function viewPost($id)
+    public function view($p_id)
     {
-        $companypost=Company::find($id);
+        $company=User::find($p_id);
 
-        return view('backend.partials.page.postview',compact('companypost'));
-    }
-
-    public function edit($p_id)
-    {
-
-        $companypost=Company::find($p_id);
-       // $allCategory=Category::all();
-        return view('backend.partials.page.postedit',compact('companypost'));
-    }
-
-
-    public function delete($id)
-    {
-
-        // Product::find($id)->delete();
-        $companypost=Company::find($id);
-        $companypost->delete();
-
-        notify()->success('post Deleted successfully.');
-
-        return redirect()->back();
-
-
+        return view('backend.partials.page.companyview',compact('company'));
     }
 
 

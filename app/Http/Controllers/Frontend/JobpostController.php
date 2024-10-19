@@ -7,13 +7,7 @@ use Illuminate\Http\Request;
 
 class JobpostController
 {
-    public function jobpost()
-    {
-    
-      $jobpost=Jobpost::all();
-       return view('frontend.jobpost',compact('jobpost'));
-       
-    }
+   
 
     public function search()
     {
@@ -22,4 +16,5 @@ class JobpostController
 
       
     }
+
 }
